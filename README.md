@@ -20,3 +20,15 @@ In this project we set up and secured a publicy accessible server.
 ```
   $sudo vi /etc/sudoers.d/grader
 ```
+
+### Update Packages
+* First check for packages to update
+```
+  $sudo apt-get update
+```
+* Then Upgrade the packages them selfs. 
+```
+  $sudo apt-get upgrade
+```
+
+### Seting up a firewall
