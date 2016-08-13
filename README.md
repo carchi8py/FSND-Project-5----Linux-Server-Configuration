@@ -101,11 +101,56 @@ cd FlaskApp
 mkdir FlaskApp
 cd FlaskApp
 ```
-* Clone our github project in to this directory (Note i know i probably could of done the directory stucture better at this point)
+* Clone our github project in to this directory (Note i know i probably could of done the directory structure better at this point)
 ```
 git clone https://github.com/carchi8py/Item-Catalog.git
 ```
 * Now Point apache to the wsgi file we are going to create later by adding the folowing line `WSGIScriptAlias / /var/www/FlaskApp/flaskapp.wsgi` right before the `</VirtualHost>`
 ```
 /etc/apache2/sites-available/000-default.conf
+```
+* Create the WSGI file, be editing `/var/www/FlaskApp/flaskapp.wsgi` with the following. Because of the directory structure i used above, the path is longer than it could of been.
+```
+#!/usr/bin/python
+import sys
+import logging
+logging.basicConfig(stream=sys.stderr)
+sys.path.insert(0,"/var/www/FlaskApp/FlaskApp/Item-Catalog/vagrant/itemCatalog")
+
+from finalProject import app as application
+application.secret_key = 'Add your secret key'
+```
+### Setting up the database. 
+*Add a new user catalog
+```
+  sudo adduser catalog
+```
+* Log in to the database. 
+```
+ sudo su - postgres
+ psql
+```
+* Create a user with catalog with a password
+```
+Create User catalog with password cat;
+```
+
+### Make code modifications
+* In our python files any places we use create_engine we need to replace that line with the following
+```
+engine = create_engine('postgresql://catalog:cat@localhost/catalog')
+```
+
+### Start website
+* Create the database tables 
+```
+python database_setup.py 
+```
+* Populate the database with some data
+```
+python lotsofitems.py 
+```
+* Check website
+```
+http://52.36.49.232/
 ```
