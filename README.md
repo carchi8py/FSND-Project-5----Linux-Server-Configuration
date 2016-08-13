@@ -91,3 +91,21 @@ python get-pip.py
   pip install SQLAlchemy
   pip install --upgrade oauth2client
 ```
+
+### Configure Apache to server a Python Mod_wsgi application
+* Create the directory our Application is going to live in
+```
+cd /var/www/
+mkdir FlaskApp
+cd FlaskApp
+mkdir FlaskApp
+cd FlaskApp
+```
+* Clone our github project in to this directory (Note i know i probably could of done the directory stucture better at this point)
+```
+git clone https://github.com/carchi8py/Item-Catalog.git
+```
+* Now Point apache to the wsgi file we are going to create later by adding the folowing line `WSGIScriptAlias / /var/www/FlaskApp/flaskapp.wsgi` right before the `</VirtualHost>`
+```
+/etc/apache2/sites-available/000-default.conf
+```
