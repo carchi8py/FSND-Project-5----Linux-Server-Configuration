@@ -49,3 +49,29 @@ In this project we set up and secured a publicy accessible server.
   sudo ufw allow 123
   sudo ufw enable
 ```
+### Set the Timezone to UTC
+```
+  sudo cp /usr/share/zoneinfo/UTC /etc/localtime
+```
+
+### Install software
+* first install apache2. 
+```
+  sudo apt-get install apache2
+```
+* Next mod WSGI
+```
+  sudo apt-get install libapache2-mod-wsgi
+```
+* Next the database. 
+```
+sudo apt-get install postgresql
+```
+* Git 
+```
+sudo apt-get install git-all
+```
+* Python's psycopg2
+```
+sudo apt-get install python-psycopg2
+```
