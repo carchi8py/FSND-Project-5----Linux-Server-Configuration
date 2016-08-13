@@ -4,6 +4,7 @@
 In this project we set up and secured a publicy accessible server.
 
 ## IP Address
+* For Testing the app use the URL. Google oauth require the URL to end with a .com/org so on and not an IP. So login will not work if you use just the IP.
 * IP address: http://52.36.49.232/
 * Ssh Port: 2200
 * Username: grader
