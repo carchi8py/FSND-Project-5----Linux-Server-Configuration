@@ -75,3 +75,19 @@ sudo apt-get install git-all
 ```
 sudo apt-get install python-psycopg2
 ```
+
+### Install the Python Modules we'll need to get this running
+*To make life easier we are going to get pip so we can install what we need with one line
+```
+  wget https://bootstrap.pypa.io/get-pip.py
+```
+*Then install pip
+```
+python get-pip.py
+```
+*Install the python modules i need to get the flask application to run
+```
+  pip install Flask
+  pip install SQLAlchemy
+  pip install --upgrade oauth2client
+```
